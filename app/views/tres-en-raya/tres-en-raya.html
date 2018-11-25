@@ -1,0 +1,18 @@
+<div id="game-board" class="">
+    <div class="marcador">
+        {{$ctrl.isEnded? $ctrl.result: 
+            $ctrl.isXTurn ? 'Turno del jugador X' : 'Turno del jugador O'}}
+    </div>
+    <div id="board">
+        <div class="board-row" ng-repeat="row in $ctrl.tablero" data-fila="{{$index}}">
+            {{row = $index;""}}
+            <div class="board-cell" ng-repeat="cell in $ctrl.tablero[0] track by $index" ng-click="$ctrl.turn(row,col)">
+                {{col = $index;""}}
+                {{$ctrl.tablero[row][col]}}
+            </div>
+        </div>
+    </div>
+    <input type="button" id="reset-button" ng-class="{'visible': $ctrl.isEnded, noVisible: ! $ctrl.isEnded}" ng-click="$ctrl.reset()" value="Reiniciar">
+        
+    </div>
+</div>
