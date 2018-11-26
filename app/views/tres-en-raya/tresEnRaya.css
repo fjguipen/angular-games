@@ -1,5 +1,10 @@
 .marcador{
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    background: #a52b2b;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
 }
 .board-row{
     width:fit-content;
