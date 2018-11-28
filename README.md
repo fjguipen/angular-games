@@ -30,4 +30,4 @@ ANGULAR-GAMES
     └───home
             home.html
             home.js
-...
+```
