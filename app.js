@@ -3,13 +3,13 @@
 // Declare app level module which depends on views, and core components
 angular.module('gamesApp', [
   'ngRoute',
+  'home',
   'tresEnRaya',
   'conectaCuatro',
 ])
 
-.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  //$locationProvider.hashPrefix('!');
-  //$locationProvider.html5Mode(true);
+.config(['$routeProvider', function( $routeProvider) {
+
 
   $routeProvider
     .when('/tres-en-raya', { template: '<tres-en-raya></tres-en-raya>'})

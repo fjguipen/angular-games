@@ -5,7 +5,7 @@ angular.module('conectaCuatro', [
 ])
 
 .component('conectaCuatro', {
-    templateUrl: 'games/conecta-cuatro/conecta-cuatro.html',
+    templateUrl: 'views/games/conecta-cuatro/conecta-cuatro.html',
     controller: 'conecta4Ctrl'
   })
 

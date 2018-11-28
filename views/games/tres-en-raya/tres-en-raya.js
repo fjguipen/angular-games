@@ -4,7 +4,7 @@ angular.module('tresEnRaya', [
   'ngRoute'
 ])
 .component('tresEnRaya', {
-  templateUrl: 'games/tres-en-raya/tres-en-raya.html',
+  templateUrl: 'views/games/tres-en-raya/tres-en-raya.html',
   controller: 'tresEnRayaCtrl'
 }) 
 .controller('tresEnRayaCtrl', function (){ 
