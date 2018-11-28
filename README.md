@@ -1,2 +1,2 @@
 # angular-games
-Algunos juegos hechos con Angular (angular-seed de base)
+Algunos juegos hechos con Angular (Version simplificada, no es necesario servidor)

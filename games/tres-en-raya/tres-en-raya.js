@@ -4,19 +4,9 @@ angular.module('tresEnRaya', [
   'ngRoute'
 ])
 .component('tresEnRaya', {
-  templateUrl: 'views/tres-en-raya/tres-en-raya.html',
-  controller: 'tresEnRayaCtrl'/*function holaquease(){
-    this.tablero = [
-      [null,null,null],
-      [null,null,null],
-      [null,null,null],
-    ];
-  
-    //console.log($scope.tablero.length)
-  
-  }*/
-        
-  }) 
+  templateUrl: 'games/tres-en-raya/tres-en-raya.html',
+  controller: 'tresEnRayaCtrl'
+}) 
 .controller('tresEnRayaCtrl', function (){ 
   this.tablero = [
     [null,null,null],

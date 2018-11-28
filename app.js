@@ -1,11 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-angular.module('myApp', [
+angular.module('gamesApp', [
   'ngRoute',
-  'myApp.home',
+  'tresEnRaya',
   'conectaCuatro',
-  'tresEnRaya'
 ])
 
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

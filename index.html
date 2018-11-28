@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gamesApp"> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Juegos Angular</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="games/tres-en-raya/tresEnRaya.css">
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#!/tres-en-raya">Tres en raya</a></li>
+    <li><a href="#!/conecta-cuatro">Conecta cuatro</a></li>
+  </ul>
+
+  <div id="content" ng-view></div>
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="games/tres-en-raya/tres-en-raya.js"></script>
+  <script src="games/conecta-cuatro/conecta-cuatro.js"></script>
+</body>
+</html>
