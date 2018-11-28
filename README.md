@@ -1,5 +1,5 @@
 # angular-games
-Algunos juegos hechos con Angular (Version simplificada, no es necesario servidor)
+Algunos juegos hechos con Angular (Versión simplificada, no es necesario servidor)
 
 ```bash
 ANGULAR-GAMES
