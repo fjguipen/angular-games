@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('tresEnRaya', [
-  'ngRoute'
+  'ngRoute',
+  'player',
 ])
 .component('tresEnRaya', {
   templateUrl: 'views/games/tres-en-raya/tres-en-raya.html',

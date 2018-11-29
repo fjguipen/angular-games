@@ -1,0 +1,46 @@
+$rojo:#a52b2b;
+$negro:#484848;
+
+@import 'presets';
+
+
+@mixin flex(){
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:flex;
+}
+
+@mixin flexCenterContent(){
+    @include flex();
+    justify-content: center;
+    align-items: center;
+}
+/* app css stylesheet */
+
+.menu {
+    padding: 15px;
+    position:fixed;
+    width: 100%;
+    text-align: center;
+    border-bottom: $rojo solid;
+    background: $negro;
+    color:white;
+
+    > li {
+        display: inline;
+
+        + li:before {
+            content: "|";
+            padding-right: 0.3em;
+        }
+
+        > a{
+            color:white;
+        }
+    }
+}
+  
+#content{
+    @include flexCenterContent();
+    min-height: 100vh;
+}

@@ -1,0 +1,52 @@
+.marcador {
+  margin-bottom: 2px;
+  background: #a52b2b;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.board-row {
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  display: flex;
+}
+
+.board-row .board-cell {
+  width: 80px;
+  height: 80px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  margin: 2px;
+}
+
+#reset-button {
+  margin: auto;
+  margin-top: 10px;
+  border: none;
+  background: #5a5a5a;
+  color: white;
+  padding: 12px 28px;
+  display: block;
+}
+
+.noVisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+/*# sourceMappingURL=style.css.map */
