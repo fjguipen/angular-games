@@ -7,7 +7,6 @@ ANGULAR-GAMES
 │   index.html
 │   LICENSE
 │   README.md
-│   [Versión
 │
 ├───lib
 │   ├───angular
