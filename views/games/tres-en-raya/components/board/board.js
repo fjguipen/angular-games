@@ -3,7 +3,9 @@
 let boardComponent = {
     bindings:{
         tablero:'<',
+        isEnded:'<',
         handleClick:'&',
+        handleReset:'&',
     },
     templateUrl:'views/games/tres-en-raya/components/board/board.html',
     controller: 'boardController',
@@ -12,13 +14,12 @@ let boardComponent = {
 
 class boardController {
     constructor(){
-
     }
 
-    clickedSquare(fila, colum){
-        console.log(this.tablero[fila][colum])
-        this.handleClick({row: fila, col: colum})
+    clickedSquare (row, col){
+        this.handleClick({row, col})
     }
+
 }
 
 angular.module('tresEnRaya.board',[

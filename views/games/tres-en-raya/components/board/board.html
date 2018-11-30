@@ -9,7 +9,8 @@
             </div>
         </div>
     </div>
+    
     <input type="button" id="reset-button" 
-            ng-class="{'visible': $ctrl.isEnded, noVisible: ! $ctrl.isEnded}" 
-            ng-click="$ctrl.reset()" 
+            ng-class="{'visible': board.isEnded, noVisible: !board.isEnded}" 
+            ng-click="board.handleReset()" 
             value="Reiniciar" />
