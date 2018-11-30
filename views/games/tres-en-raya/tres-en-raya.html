@@ -1,5 +1,18 @@
 <div class="players">
-    <player></player>
+
+    <div ng-show="!validatedPlayers">
+            <div class="form-group">
+                <label for="player1" >Jugador 1</label>
+                <input type="text" ng-model="p1Name"/>
+            </div>    
+            <div class="form-group">
+                <label for="player2">Jugador 2</label>
+                <input type="text" ng-model="p2Name"/>           
+            </div>
+    </div>
+
+    <label for="validatedPlayers">Jugar</label>
+    <input id="validatedPlayers" type="checkbox" ng-model="validatedPlayers" ng-disabled="!p1Name || !p2Name"/>
 </div>
 
 <div id="game-board" class="">
@@ -7,15 +20,6 @@
         {{$ctrl.isEnded? $ctrl.result: 
             $ctrl.isXTurn ? 'Turno del jugador X' : 'Turno del jugador O'}}
     </div>
-    <div id="board">
-        <div class="board-row" ng-repeat="row in $ctrl.tablero" data-fila="{{$index}}">
-            {{row = $index;""}}
-            <div class="board-cell" ng-repeat="cell in $ctrl.tablero[0] track by $index" ng-click="$ctrl.turn(row,col)">
-                {{col = $index;""}}
-                {{$ctrl.tablero[row][col]}}
-            </div>
-        </div>
-    </div>
-    <input type="button" id="reset-button" ng-class="{'visible': $ctrl.isEnded, noVisible: ! $ctrl.isEnded}" ng-click="$ctrl.reset()" value="Reiniciar" />
-        
+    <board tablero="$ctrl.tablero" handle-click="$ctrl.turn(row, col)"></board>
 </div>
+

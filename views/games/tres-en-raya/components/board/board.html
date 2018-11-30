@@ -1,0 +1,15 @@
+    <div id="board">       
+        <div class="board-row" ng-repeat="row in board.tablero" data-fila="{{$index}}">
+            {{row = $index;""}}
+            <div class="board-cell" 
+                    ng-repeat="cell in board.tablero[0] track by $index" 
+                    ng-click="board.clickedSquare(row,col)">
+                {{col = $index;""}}
+                {{board.tablero[row][col]}}
+            </div>
+        </div>
+    </div>
+    <input type="button" id="reset-button" 
+            ng-class="{'visible': $ctrl.isEnded, noVisible: ! $ctrl.isEnded}" 
+            ng-click="$ctrl.reset()" 
+            value="Reiniciar" />

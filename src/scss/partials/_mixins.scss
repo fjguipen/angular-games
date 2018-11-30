@@ -1,0 +1,11 @@
+@mixin flex(){
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:flex;
+}
+
+@mixin flexCenterContent(){
+    @include flex();
+    justify-content: center;
+    align-items: center;
+}

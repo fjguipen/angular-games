@@ -1,22 +1,15 @@
 $rojo:#a52b2b;
 $negro:#484848;
 
-@import 'presets';
+//Al importarlo el primero, estará disponible
+//tb en el resto de imports!
+@import 'partials/mixins';
 
+@import 'partials/presets';
+@import 'partials/forms';
+@import 'partials/tresEnRaya';
 
-@mixin flex(){
-    display:-webkit-flex;
-    display:-moz-flex;
-    display:flex;
-}
-
-@mixin flexCenterContent(){
-    @include flex();
-    justify-content: center;
-    align-items: center;
-}
-/* app css stylesheet */
-
+/*App css general*/
 .menu {
     padding: 15px;
     position:fixed;
@@ -43,4 +36,8 @@ $negro:#484848;
 #content{
     @include flexCenterContent();
     min-height: 100vh;
+}
+
+.estoesuncambio{
+    color:white;
 }

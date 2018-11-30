@@ -2,7 +2,8 @@
 
 angular.module('tresEnRaya', [
   'ngRoute',
-  'player',
+  'tresEnRaya.player',
+  'tresEnRaya.board',
 ])
 .component('tresEnRaya', {
   templateUrl: 'views/games/tres-en-raya/tres-en-raya.html',
@@ -18,11 +19,13 @@ angular.module('tresEnRaya', [
   this.round = 0;
   this.isEnded = false;
   this.result = 'Ambos pierden';
+  
   this.turn = function (row, col){
     if (!this.isEnded){
       if (this.tablero[row][col] === null){
         var player = this.isXTurn ? 'X' : 'O';
         this.tablero[row][col] = player;
+        
         this.isXTurn = !this.isXTurn;
         this.round++
         if (this.checkWinner(row, col)){
@@ -37,6 +40,7 @@ angular.module('tresEnRaya', [
       }     
     }
   }
+
   this.checkWinner = function (row, col){
     var winner = false;
     //Cheking rows
