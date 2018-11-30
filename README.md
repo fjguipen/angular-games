@@ -3,11 +3,11 @@ Algunos juegos hechos con Angular (Versión simplificada, no es necesario servid
 
 ```bash
 ANGULAR-GAMES
-│   app.css
 │   app.js
 │   index.html
 │   LICENSE
 │   README.md
+│   [Versión
 │
 ├───lib
 │   ├───angular
@@ -16,6 +16,21 @@ ANGULAR-GAMES
 │   └───angular-route
 │           angular-route.js
 │
+├───src
+│   ├───css
+│   │       app.css
+│   │       app.css.map
+│   │       style.css
+│   │
+│   └───scss
+│       │   app.scss
+│       │
+│       └───partials
+│               _forms.scss
+│               _mixins.scss
+│               _presets.scss
+│               _tresEnRaya.scss
+│
 └───views
     ├───games
     │   ├───conecta-cuatro
@@ -23,9 +38,17 @@ ANGULAR-GAMES
     │   │       conecta-cuatro.js
     │   │
     │   └───tres-en-raya
-    │           tres-en-raya.html
-    │           tres-en-raya.js
-    │           tresEnRaya.css
+    │       │   tres-en-raya.html
+    │       │   tres-en-raya.js
+    │       │
+    │       └───components
+    │           ├───board
+    │           │       board.html
+    │           │       board.js
+    │           │
+    │           └───player
+    │                   player.html
+    │                   player.js
     │
     └───home
             home.html
