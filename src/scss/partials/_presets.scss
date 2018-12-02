@@ -9,6 +9,9 @@ ul{
 }
 a{
     text-decoration: none;
+    &:avtive{
+        outline: none;
+    }
 }
 img{
     display:block;
