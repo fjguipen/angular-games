@@ -100,7 +100,6 @@ class tresEnRayaCtrl {
 
 angular.module('tresEnRaya', [
     'ngRoute',
-    'tresEnRaya.player',
     'tresEnRaya.board',
 ])
     .component('tresEnRaya', tresEnRayaComponent)
