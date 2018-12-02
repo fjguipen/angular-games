@@ -2,7 +2,7 @@
 Algunos juegos hechos con Angular (Versión simplificada, no es necesario servidor)
 
 ```bash
-ANGULAR-GAMES
+│   app.html
 │   app.js
 │   index.html
 │   LICENSE
@@ -20,6 +20,10 @@ ANGULAR-GAMES
 │   │       app.css
 │   │       app.css.map
 │   │       style.css
+│   │
+│   ├───img
+│   │       3enraya.jpg
+│   │       conecta4.jpg
 │   │
 │   └───scss
 │       │   app.scss
@@ -49,7 +53,10 @@ ANGULAR-GAMES
     │                   player.html
     │                   player.js
     │
-    └───home
-            home.html
-            home.js
+    ├───home
+    │       home.html
+    │
+    └───score-board
+            score-board.html
+            score-board.js
 ```
