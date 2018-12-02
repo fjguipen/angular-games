@@ -1,1 +1,15 @@
-<p>Elije un un juego</p>
+<div class="large-menu">
+    <p class="text-center">Escoge un juego</p>
+    <ul>
+        <li ng-mouseenter="showGameA = true" ng-mouseleave="showGameA = false">
+            <a href="#!/tres-en-raya">
+                <img src="src/img/3enraya.jpg" alt="tres en raya" />
+            </a>
+            <p class="text-center noVisible" ng-class="{'visible': showGameA === true}">Jugar a Tres en Raya</p>
+        </li>
+        <li ng-mouseenter="showGameB = true" ng-mouseleave="showGameB = false">
+            <img class="not-available" src="src/img/conecta4.jpg" alt="conecta cuatro" />
+            <p class="text-center noVisible" ng-class="{'visible': showGameB === true}">Jugar a Conecta 4 (PROXIMAMENTE)</p>
+        </li>
+    </ul>
+</div>

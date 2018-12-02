@@ -14,9 +14,7 @@ class playerController{
     constructor(){
         //this.prueba;
     }
-    $onChanges( changes ){
-        //this.prueba2 = this.name;
-    }
+
 }
 
 angular.module('tresEnRaya.player', [

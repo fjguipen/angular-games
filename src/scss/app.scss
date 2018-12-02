@@ -1,5 +1,6 @@
 $rojo:#a52b2b;
 $negro:#484848;
+$disabled: #d8d8d8;
 
 //Al importarlo el primero, estará disponible
 //tb en el resto de imports!
@@ -10,6 +11,20 @@ $negro:#484848;
 @import 'partials/tresEnRaya';
 
 /*App css general*/
+body{
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.noVisible{
+    visibility: hidden;
+}
+.visible{
+   visibility: visible !important;
+}
+.text-center{
+    text-align: center;
+}
+
 .menu {
     padding: 15px;
     position:fixed;
@@ -34,10 +49,84 @@ $negro:#484848;
 }
   
 #content{
-    @include flexCenterContent();
+    @include flex();
+    justify-content: center;
     min-height: 100vh;
 }
 
-.estoesuncambio{
-    color:white;
+.large-menu{
+    ul{
+        @include flexCenterContent();
+        flex-flow: row wrap;
+        li{
+            margin: 40px 20px 0px 20px;
+            img{
+                width:300px;
+                &.not-available{
+                    opacity:0.3
+                }
+            }
+        }
+    }
 }
+
+.score-board{
+    padding: 0 30px;
+    max-width: 350px;
+    li{
+        padding: 15px;
+        //background-color: $negro;
+        color:$negro;
+        margin:15px 0;
+
+        p{
+            span{
+                @include flexCenterContent();
+                float: right;
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+                color:white;
+                &.redPlayer{
+                    background-color: $rojo;
+                }
+                &.blackPlayer{
+                    background-color: $negro;
+                }
+
+            }
+        }
+    }
+}
+
+.players{
+    @include flexCenterContent();
+}
+
+@media only screen and(max-width:600px){
+    score-board{
+        margin-top: 75px;
+    }
+    @for $i from 1 through 12{
+        .sm-col-#{$i}{
+            width: (100% * $i / 12);
+            padding:10px;
+        }
+    }
+}
+
+@media only screen and(min-width:601px){
+    #content{
+        align-items: center;
+    }
+    @for $i from 1 through 12{
+        .md-col-#{$i}{
+            width: (100% * $i / 12);
+            max-width: 600px;
+            padding:20px;
+        }
+    }
+}
+
+
+

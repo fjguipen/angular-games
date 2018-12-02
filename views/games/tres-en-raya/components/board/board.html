@@ -1,16 +1,17 @@
     <div id="board">       
         <div class="board-row" ng-repeat="row in board.tablero" data-fila="{{$index}}">
             {{row = $index;""}}
-            <div class="board-cell" 
-                    ng-repeat="cell in board.tablero[0] track by $index" 
-                    ng-click="board.clickedSquare(row,col)">
-                {{col = $index;""}}
-                {{board.tablero[row][col]}}
-            </div>
+            <circle ng-repeat="cell in board.tablero[0] track by $index"
+                current-value="board.tablero[row][$index]"
+                clicked-square="board.clickedSquare(row,col)"
+                row="row"
+                col="$index" >
+            </circle>
         </div>
     </div>
     
-    <input type="button" id="reset-button" 
-            ng-class="{'visible': board.isEnded, noVisible: !board.isEnded}" 
+    <input type="button" id="reset-button"  class="button"
+            ng-class="{'disabled-button': !board.isEnded ,
+                        'active-button': board.isEnded}" 
             ng-click="board.handleReset()" 
             value="Reiniciar" />

@@ -7,23 +7,118 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="src/css/app.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+  
+  <!-- Para evitar el bloqueo CORS, tengo que incrustar los .html aquí, menudo rollo! -->
+  
+  <!-- app.html-->
+  <script type="text/ng-template" id="/app.html">
+    <ul class="menu">
+        <li><a href="#!/">Inicio</a></li>
+        <li><a href="#!/tres-en-raya">Tres en raya</a></li>
+        <li><a href="#!/conecta-cuatro">Conecta cuatro</a></li>
+    </ul>
+    <div id="content">
+        <div class="players">
+            <form ng-show="!app.validPlayers" ng-submit="app.validatePlayers(event)">
+                    <div class="form-group">
+                        <label for="player1" >Jugador 1</label>
+                        <input type="text" ng-model="app.player1"/>
+                    </div>    
+                    <div class="form-group">
+                        <label for="player2">Jugador 2</label>
+                        <input type="text" ng-model="app.player2"/>           
+                    </div>
+                    <input id="validatedPlayers" 
+                            type="submit"
+                            
+                            ng-model="validatedPlayers" 
+                            ng-disabled="!app.player1 || !app.player2"/>
+                    <label for="validatedPlayers"
+                            ng-class="{'disabled-button':!isValid , 
+                                        'active-button': isValid}">
+                        Jugar
+                    </label>
+            </form>
+            {{isValid = app.player1 && app.player2;""}}
+        </div>
+        <score-board class="sm-col-12 md-col-6" ng-show="app.validPlayers"
+                    store="app.store"></score-board>
+        <div class="game-view sm-col-12 md-col-6" ng-view ng-show="app.validPlayers">
+        </div>
+    </div>
+  </script>
+  
+  <!-- home.html-->
+  <script type="text/ng-template" id="/home.html">
+    <div class="large-menu">
+        <p class="text-center">Escoge un juego</p>
+        <ul>
+            <li ng-mouseenter="showGameA = true" ng-mouseleave="showGameA = false">
+                <a href="#!/tres-en-raya">
+                    <img src="src/img/3enraya.jpg" alt="tres en raya" />
+                </a>
+                <p class="text-center noVisible" ng-class="{'visible': showGameA === true}">Jugar a Tres en Raya</p>
+            </li>
+            <li ng-mouseenter="showGameB = true" ng-mouseleave="showGameB = false">
+                <img class="not-available" src="src/img/conecta4.jpg" alt="conecta cuatro" />
+                <p class="text-center noVisible" ng-class="{'visible': showGameB === true}">Jugar a Conecta 4 (PROXIMAMENTE)</p>
+            </li>
+        </ul>
+    </div> 
+  </script>
+
+   <!-- tres-en-raya.html-->
+  <script type="text/ng-template" id="/tres-en-raya.html">
+    <div id="game-board" class="">
+        <div class="marcador">
+          <div ng-show="$ctrl.isEnded">{{$ctrl.result}}</div>
+          <div  ng-show="!$ctrl.isEnded">
+            <div class="esTurnoDe">Turno del jugador <span class="playerIndicator" ng-class="{'redPlayer': $ctrl.isXTurn, 'blackPlayer': !$ctrl.isXTurn}"></span>
+            </div>
+          </div>
+
+          
+        </div>
+        <board tablero="$ctrl.tablero" 
+                is-ended="$ctrl.isEnded" 
+                handle-reset="$ctrl.reset()" 
+                handle-click="$ctrl.turn(row, col)">
+        </board>
+    </div>
+  </script>  
+
+  <!-- tresEnRaya.board.html-->
+  <script type="text/ng-template" id="/board.html">
+    <div id="board">       
+        <div class="board-row" ng-repeat="row in board.tablero" data-fila="{{$index}}">
+            {{row = $index;""}}
+            <circle ng-repeat="cell in board.tablero[0] track by $index"
+                current-value="board.tablero[row][$index]"
+                clicked-square="board.clickedSquare(row,col)"
+                row="row"
+                col="$index" >
+            </circle>
+        </div>
+    </div>
+    <input type="button" id="reset-button"  class="button"
+            ng-class="{'disabled-button': !board.isEnded ,
+                        'active-button': board.isEnded}" 
+            ng-click="board.handleReset()" 
+            value="Reiniciar" />
+  </script>
+
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/tres-en-raya">Tres en raya</a></li>
-    <li><a href="#!/conecta-cuatro">Conecta cuatro</a></li>
-  </ul>
-
-  <div id="content" ng-view></div>
-
+  <games-app></games-app>
+  
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="views/home/home.js"></script>  
+  <script src="views/score-board/score-board.js"></script>
   <script src="views/games/tres-en-raya/tres-en-raya.js"></script>
   <script src="views/games/tres-en-raya/components/player/player.js"></script>
   <script src="views/games/tres-en-raya/components/board/board.js"></script>
-  <script src="views/games/conecta-cuatro/conecta-cuatro.js"></script>
-  
+  <script src="views/games/conecta-cuatro/conecta-cuatro.js"></script> 
 </body>
 </html>

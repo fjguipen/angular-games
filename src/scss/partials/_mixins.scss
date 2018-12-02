@@ -2,10 +2,51 @@
     display:-webkit-flex;
     display:-moz-flex;
     display:flex;
+    flex-flow: row wrap;
 }
 
 @mixin flexCenterContent(){
     @include flex();
     justify-content: center;
     align-items: center;
+}
+
+@mixin button($bg: $disabled){
+    color: white;
+    padding: 10px 25px;
+    display: block;
+    margin:auto;
+    margin-top: 20px;
+    text-align: center;
+    @if ($bg != $disabled){
+        background-color: $bg;
+        &:hover{
+            cursor: pointer;
+        }
+    } @else {
+        background-color: $bg;
+        &:hover{
+            cursor: default;
+        }
+    }  
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin transition ($property, $duration, $curve:linear ,$delay: 0s) {
+    -webkit-transition: $property $duration $curve $delay;
+    -moz-transition: $property $duration $curve $delay;
+    -ms-transition: $property $duration $curve $delay;
+    transition: $property $duration $curve $delay;
+}
+
+@mixin backface($prop){
+    -webkit-backface-visibility: $prop;
+    -moz-backface-visibility: $prop;
+    backface-visibility: $prop;
 }

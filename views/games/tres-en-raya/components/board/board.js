@@ -1,29 +1,60 @@
 'use strict'
 
 let boardComponent = {
-    bindings:{
-        tablero:'<',
-        isEnded:'<',
-        handleClick:'&',
-        handleReset:'&',
+    bindings: {
+        tablero: '<',
+        isEnded: '<',
+        handleClick: '&',
+        handleReset: '&',
     },
-    templateUrl:'views/games/tres-en-raya/components/board/board.html',
+    templateUrl: '/board.html',
     controller: 'boardController',
-    controllerAs:'board',
+    controllerAs: 'board',
+}
+
+let circleComponent = {
+    bindings: {
+        currentValue: '<',
+        row: '<',
+        col: '<',
+        clickedSquare: '&'
+    },
+    template: `<div class="board-cell" 
+                    ng-click="circle.handleClick()">
+                    <span ng-class="{'showUp': circle.currentValue, 
+                                    'bg-rojo':  circle.currentValue === 'X',
+                                    'bg-negro': circle.currentValue === 'O'}">                        
+                    </span>
+                </div>`,
+    controller: 'circleController',
+    controllerAs: 'circle'
 }
 
 class boardController {
-    constructor(){
+    constructor() {
     }
 
-    clickedSquare (row, col){
-        this.handleClick({row, col})
+    clickedSquare(row, col) {
+        this.handleClick({ row, col })
     }
 
 }
 
-angular.module('tresEnRaya.board',[
+class circleController {
+    constructor() {
+    }
 
+    $onInit() {
+        this.handleClick = () => {
+            this.clickedSquare({ row: this.row, col: this.col })
+        }
+    }
+}
+
+angular.module('tresEnRaya.board', [
+    //'tresEnRaya.circle'
 ])
-.component('board', boardComponent)
-.controller('boardController', boardController)
+    .component('board', boardComponent)
+    .component('circle', circleComponent)
+    .controller('boardController', boardController)
+    .controller('circleController', circleController)

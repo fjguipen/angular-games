@@ -1,0 +1,33 @@
+<ul class="menu">
+        <li><a href="#!/">Inicio</a></li>
+        <li><a href="#!/tres-en-raya">Tres en raya</a></li>
+        <li><a href="#!/conecta-cuatro">Conecta cuatro</a></li>
+    </ul>
+    <div id="content">
+        <div class="players">
+            <form ng-show="!app.validPlayers">
+                    <div class="form-group">
+                        <label for="player1" >Jugador 1</label>
+                        <input type="text" ng-model="app.player1Name"/>
+                    </div>    
+                    <div class="form-group">
+                        <label for="player2">Jugador 2</label>
+                        <input type="text" ng-model="app.player2Name"/>           
+                    </div>
+                    <input id="validatedPlayers" 
+                            type="button"
+                            ng-click="app.validatePlayers()"
+                            ng-model="validatedPlayers" 
+                            ng-disabled="!app.player1Name || !app.player2Name"/>
+                    <label for="validatedPlayers"
+                            ng-class="{'disabled-button':!isValid , 
+                                        'active-button': isValid}">
+                        Jugar
+                    </label>
+            </form>
+            {{isValid = app.player1Name && app.player2Name;""}}
+        </div>
+        <score-board></score-board>
+        <div class="game-view" ng-view ng-show="app.validPlayers">
+        </div>
+</div>
