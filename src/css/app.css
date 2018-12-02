@@ -12,7 +12,7 @@ ul {
 a {
   text-decoration: none;
 }
-a:avtive {
+a:active {
   outline: none;
 }
 
