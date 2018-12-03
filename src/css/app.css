@@ -238,18 +238,14 @@ h1 {
   width: 100%;
   text-align: center;
   border-bottom: #a52b2b solid;
-  background: #484848;
-  color: white;
+  color: #484848;
 }
 .menu > li {
   display: inline;
 }
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
 .menu > li > a {
-  color: white;
+  color: #484848;
+  text-transform: uppercase;
   padding: 10px;
 }
 
