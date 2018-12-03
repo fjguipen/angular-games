@@ -67,21 +67,26 @@
 
     <!-- home.html-->
     <script type="text/ng-template" id="/home.html">
-    <div class="large-menu">
-        <p class="text-center">Escoge un juego</p>
-        <ul>
-            <li ng-mouseenter="showGameA = true" ng-mouseleave="showGameA = false">
-                <a href="#!/tres-en-raya">
-                    <img src="src/img/3enraya.jpg" alt="tres en raya" />
-                </a>
-                <p class="text-center noVisible" ng-class="{'visible': showGameA === true}">Jugar a Tres en Raya</p>
-            </li>
-            <li ng-mouseenter="showGameB = true" ng-mouseleave="showGameB = false">
-                <img class="not-available" src="src/img/conecta4.jpg" alt="conecta cuatro" />
-                <p class="text-center noVisible" ng-class="{'visible': showGameB === true}">Jugar a Conecta 4 (PROXIMAMENTE)</p>
-            </li>
-        </ul>
-    </div> 
+        <div class="large-menu-cont">
+                <img src="src/img/leftControl.png" class="control-left" ng-click="slid.toLeft()" ng-show="slid.posicion < 0" />
+                <img src="src/img/rightControl.png" class="control-right" ng-click="slid.toRight()" ng-show="slid.posicion > slid.totalWidth" />
+            <div class="large-menu">
+                <p class="text-center">Escoge un juego</p>
+                <ul style="left:{{slid.posicion}}px;">
+                    <li ng-mouseenter="showGameA = true" ng-mouseleave="showGameA = false">
+                        <a href="#!/tres-en-raya">
+                            <img src="src/img/3enraya.jpg" alt="tres en raya" />
+                            <p class="text-center noVisible" ng-class="{'visible': showGameA === true}">Jugar a Tres en Raya</p>
+                        </a>
+                        
+                    </li>
+                    <li ng-mouseenter="showGameB = true" ng-mouseleave="showGameB = false">
+                        <img class="not-available" src="src/img/conecta4.jpg" alt="conecta cuatro" />
+                        <p class="text-center noVisible" ng-class="{'visible': showGameB === true}">Jugar a Conecta 4 (PROXIMAMENTE)</p>
+                    </li>
+                </ul>
+            </div> 
+        </div>
   </script>
 
     <!-- tres-en-raya.html-->
@@ -134,6 +139,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
+    <script src="views/game-slider/game-slider.js"></script>
     <script src="views/score-board/score-board.js"></script>
     <script src="views/games/tres-en-raya/tres-en-raya.js"></script>
     <script src="views/games/tres-en-raya/components/board/board.js"></script>

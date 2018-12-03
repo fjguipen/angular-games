@@ -8,8 +8,10 @@ ul{
     list-style:none;
 }
 a{
+    color:$negro;
     text-decoration: none;
     &:active,&:focus{
+        
         outline: none;
     }
 }

@@ -24,6 +24,9 @@ h1{
 .visible{
    visibility: visible !important;
 }
+.d-block{
+    display:block;
+}
 .text-center{
     text-align: center;
 }
@@ -57,17 +60,57 @@ h1{
     justify-content: center;
     min-height: 100vh;
 }
-
-.large-menu{
-    ul{
-        @include flexCenterContent();
-        flex-flow: row wrap;
-        li{
-            margin: 40px 20px 0px 20px;
-            img{
-                width:300px;
-                &.not-available{
-                    opacity:0.3
+@mixin sliderControl(){
+    display: block;
+    position:absolute;
+    top:50%;
+}
+.large-menu-cont{
+    position: relative;
+    img{
+        width:32px;
+        height: auto;
+        &:hover{
+            cursor:pointer;
+        }
+        &.control-left{
+            @include sliderControl();
+            left:0;
+        }
+        &.control-right{
+            @include sliderControl();
+            right:0;
+        }
+    }
+    .large-menu{
+        position: relative;
+        width:300px;
+        height: 320px;;
+        margin:auto;
+        overflow:hidden;
+        ul{
+            position: absolute;
+            top:0;
+            margin: auto;
+            margin-top:40px;
+            @include flex();
+            flex-flow: row;
+            @include transition(left, 0.6s, ease-in-out);
+            li{
+                position: relative;
+                top:0;
+    
+                img{
+                    width:300px;
+                    &.not-available{
+                        opacity:0.3
+                    }
+                }
+                p{
+                    position: absolute;
+                    bottom: 20px;
+                    width: 100%;
+                    text-align: center;
                 }
             }
         }

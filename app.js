@@ -34,6 +34,7 @@ class gamesAppController {
 angular.module('gamesApp', [
     'ngRoute',
     'scoreBoard',
+    'gameSlider',
     'tresEnRaya',
     'conectaCuatro',
 ])
@@ -80,7 +81,7 @@ angular.module('gamesApp', [
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/home.html'
+                template: '<game-slider></game-slider>'
             })
             .when('/tres-en-raya', {
                 template: `<tres-en-raya ></tres-en-raya>`,

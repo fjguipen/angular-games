@@ -10,6 +10,7 @@ ul {
 }
 
 a {
+  color: #484848;
   text-decoration: none;
 }
 a:active, a:focus {
@@ -223,6 +224,10 @@ h1 {
   visibility: visible !important;
 }
 
+.d-block {
+  display: block;
+}
+
 .text-center {
   text-align: center;
 }
@@ -257,23 +262,65 @@ h1 {
   min-height: 100vh;
 }
 
-.large-menu ul {
+.large-menu-cont {
+  position: relative;
+}
+.large-menu-cont img {
+  width: 32px;
+  height: auto;
+}
+.large-menu-cont img:hover {
+  cursor: pointer;
+}
+.large-menu-cont img.control-left {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.large-menu-cont img.control-right {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.large-menu-cont .large-menu {
+  position: relative;
+  width: 300px;
+  height: 320px;
+  margin: auto;
+  overflow: hidden;
+}
+.large-menu-cont .large-menu ul {
+  position: absolute;
+  top: 0;
+  margin: auto;
+  margin-top: 40px;
   display: -webkit-flex;
   display: -moz-flex;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
+  flex-flow: row;
+  -webkit-transition: left 0.6s ease-in-out 0s;
+  -moz-transition: left 0.6s ease-in-out 0s;
+  -ms-transition: left 0.6s ease-in-out 0s;
+  transition: left 0.6s ease-in-out 0s;
 }
-.large-menu ul li {
-  margin: 40px 20px 0px 20px;
+.large-menu-cont .large-menu ul li {
+  position: relative;
+  top: 0;
 }
-.large-menu ul li img {
+.large-menu-cont .large-menu ul li img {
   width: 300px;
 }
-.large-menu ul li img.not-available {
+.large-menu-cont .large-menu ul li img.not-available {
   opacity: 0.3;
+}
+.large-menu-cont .large-menu ul li p {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .score-board {
