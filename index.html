@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="gamesApp"> 
+<html lang="en" ng-app="gamesApp">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Juegos Angular</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="src/css/app.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
-  
-  <!-- Para evitar el bloqueo CORS, tengo que incrustar los .html aquí, menudo rollo! -->
-  
-  <!-- app.html-->
-  <script type="text/ng-template" id="/app.html">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Juegos Angular</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/css/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+
+    <!-- Para evitar el bloqueo CORS, tengo que incrustar los .html aquí, menudo rollo! -->
+
+    <!-- app.html-->
+    <script type="text/ng-template" id="/app.html">
     <ul class="menu">
         <li><a href="#!/">Inicio</a></li>
         <li><a href="#!/tres-en-raya">Tres en raya</a></li>
@@ -48,9 +49,24 @@
         </div>
     </div>
   </script>
-  
-  <!-- home.html-->
-  <script type="text/ng-template" id="/home.html">
+
+    <!-- score-board.html-->
+    <script type="text/ng-template" id="/score-board.html">
+        <div class="">
+            <h1>Clasificación</h1>
+            <ul class="score-board">
+                <li>
+                    <p>{{scrBoard.store.player1.name}}<span class="redPlayer">{{scrBoard.store.player1.wins}}</span></p>
+                </li>
+                <li>
+                    <p>{{scrBoard.store.player2.name}}<span class="blackPlayer">{{scrBoard.store.player2.wins}}</span></p>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <!-- home.html-->
+    <script type="text/ng-template" id="/home.html">
     <div class="large-menu">
         <p class="text-center">Escoge un juego</p>
         <ul>
@@ -68,8 +84,8 @@
     </div> 
   </script>
 
-   <!-- tres-en-raya.html-->
-  <script type="text/ng-template" id="/tres-en-raya.html">
+    <!-- tres-en-raya.html-->
+    <script type="text/ng-template" id="/tres-en-raya.html">
     <div id="game-board" class="">
         <div class="marcador">
           <div ng-show="$ctrl.isEnded">{{$ctrl.result}}</div>
@@ -82,22 +98,24 @@
         </div>
         <board tablero="$ctrl.tablero" 
                 is-ended="$ctrl.isEnded" 
+                win-line="$ctrl.winLine"
                 handle-reset="$ctrl.reset()" 
                 handle-click="$ctrl.turn(row, col)">
         </board>
     </div>
-  </script>  
+  </script>
 
-  <!-- tresEnRaya.board.html-->
-  <script type="text/ng-template" id="/board.html">
-    <div id="board">       
+    <!-- tres-en-raya.board.html-->
+    <script type="text/ng-template" id="/board.html">
+    <div id="board">      
         <div class="board-row" ng-repeat="row in board.tablero" data-fila="{{$index}}">
             {{row = $index;""}}
             <circle ng-repeat="cell in board.tablero[0] track by $index"
                 current-value="board.tablero[row][$index]"
                 clicked-square="board.clickedSquare(row,col)"
                 row="row"
-                col="$index" >
+                col="$index"
+                in-win-line="board.inWinLine(row, $index)">
             </circle>
         </div>
     </div>
@@ -109,15 +127,17 @@
   </script>
 
 </head>
+
 <body>
-  <games-app></games-app>
-  
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="views/score-board/score-board.js"></script>
-  <script src="views/games/tres-en-raya/tres-en-raya.js"></script>
-  <script src="views/games/tres-en-raya/components/board/board.js"></script>
-  <script src="views/games/conecta-cuatro/conecta-cuatro.js"></script> 
+    <games-app></games-app>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="views/score-board/score-board.js"></script>
+    <script src="views/games/tres-en-raya/tres-en-raya.js"></script>
+    <script src="views/games/tres-en-raya/components/board/board.js"></script>
+    <script src="views/games/conecta-cuatro/conecta-cuatro.js"></script>
 </body>
+
 </html>

@@ -9,7 +9,7 @@ ul{
 }
 a{
     text-decoration: none;
-    &:active{
+    &:active,&:focus{
         outline: none;
     }
 }

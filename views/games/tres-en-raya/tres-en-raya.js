@@ -26,6 +26,7 @@ class tresEnRayaCtrl {
             name: this.gameStatus.player2.get.name(),
             mark: "O",
         }
+        this.winLine=[];
         //Escuchamos evento, si el store cambian, actualizamos campos
         this.scope.$on('storeChanged', ()=>{
             this.player1 = {
@@ -66,24 +67,39 @@ class tresEnRayaCtrl {
     checkWinner(row, col) {
         var winner = false;
         //Cheking rows
-        if (this.tablero[row][0] === this.tablero[row][1] && this.tablero[row][1] === this.tablero[row][2]) {
+        if (!winner && this.tablero[row][0] === this.tablero[row][1] && this.tablero[row][1] === this.tablero[row][2]) {
+            for (let col = 0; col < 3; col++){
+                this.winLine.push({row, col})
+            }
             winner = true;
         }
         //Cheking colums
-        if (this.tablero[0][col] === this.tablero[1][col] && this.tablero[1][col] === this.tablero[2][col]) {
+        if (!winner &&  this.tablero[0][col] === this.tablero[1][col] && this.tablero[1][col] === this.tablero[2][col]) {
+            for (let row = 0; row < 3; row++){
+                this.winLine.push({row, col})
+            }
             winner = true;
         }
         //Cheking diagonals
-        if (this.tablero[0][0] && this.tablero[0][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][2]) {
+        if (!winner && this.tablero[0][0] && this.tablero[0][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][2]) {
+            for (let i = 0; i < 3; i++){
+                this.winLine.push({row:i, col:i})
+            }
             winner = true;
         }
-        if (this.tablero[0][2] && this.tablero[0][2] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][0]) {
+        if (!winner &&  this.tablero[0][2] && this.tablero[0][2] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][0]) {
+            let col = 2;
+            for (let row = 0; row < 3; row++){
+                this.winLine.push({row, col})
+                col--;
+            }
             winner = true;
         }
         return winner;
     }
 
     reset() {
+        console.log(this.winLine)
         if (this.isEnded) {
             this.isEnded = false;
             this.isXTurn = true;
@@ -93,6 +109,7 @@ class tresEnRayaCtrl {
                 [null, null, null],
                 [null, null, null],
             ];
+            this.winLine=[];
             this.result = 'Ambos pierden';
         }
     }

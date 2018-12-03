@@ -24,6 +24,7 @@ label[for="validatedPlayers"]{
 }
 
 .marcador{
+    height: 40px;
     margin-bottom: 2px;
     padding: 10px;
     color: $negro;
@@ -55,39 +56,46 @@ label[for="validatedPlayers"]{
     margin: auto;
     
 }
-.board-row .board-cell{
-    width:80px;
-    height: 80px;
-    border: 1px solid $disabled;
-    @include flexCenterContent();
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-    user-select: none;
-    margin:2px;
-    border-radius: 1000px;
-    &:hover{
-        cursor: pointer;
-    }
-    span {
-        width: 100%;
-        height: 100%;
-        border-radius: 1000px;
+.board-row {
+    .board-cell{
+        width:80px;
+        height: 80px;
+        border: 1px solid $disabled;
         @include flexCenterContent();
-        @include transform(rotateY(180deg));
-        @include backface(hidden);
-        @include transition(transform, 0.2s);
-        &.showUp{
-            @include transform(rotateY(0deg))
-        }
-        color:transparent;
-        &.bg-rojo{
-            background-color:$rojo;
-        }
-        &.bg-negro{
-            background-color:$negro;
-        }
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;
+        margin:2px;
+        border-radius: 1000px;
+        @include transition(transform, 0.5s);
 
+        &.inWinLine{
+            @include transform(rotateY(360deg));
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        span {
+            width: 100%;
+            height: 100%;
+            border-radius: 1000px;
+            @include flexCenterContent();
+            @include transform(rotateY(180deg));
+            @include backface(hidden);
+            @include transition(transform, 0.2s);
+            &.showUp{
+                @include transform(rotateY(0deg))
+            }
+            color:transparent;
+            &.bg-rojo{
+                background-color:$rojo;
+            }
+            &.bg-negro{
+                background-color:$negro;
+            }
+    
+        }
     }
 }
 

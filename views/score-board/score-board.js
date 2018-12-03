@@ -4,7 +4,7 @@ let scoreBoardComponent = {
     },
     controller: 'scoreBoardCtrl',
     controllerAs: 'scrBoard',
-    templateUrl: 'views/score-board/score-board.html',
+    templateUrl: '/score-board.html',
 }
 
 class scoreBoardCtrl{

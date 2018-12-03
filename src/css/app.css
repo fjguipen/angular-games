@@ -12,7 +12,7 @@ ul {
 a {
   text-decoration: none;
 }
-a:active {
+a:active, a:focus {
   outline: none;
 }
 
@@ -100,6 +100,7 @@ label[for=validatedPlayers].active-button:hover {
 }
 
 .marcador {
+  height: 40px;
   margin-bottom: 2px;
   padding: 10px;
   color: #484848;
@@ -155,6 +156,16 @@ label[for=validatedPlayers].active-button:hover {
   user-select: none;
   margin: 2px;
   border-radius: 1000px;
+  -webkit-transition: transform 0.5s linear 0s;
+  -moz-transition: transform 0.5s linear 0s;
+  -ms-transition: transform 0.5s linear 0s;
+  transition: transform 0.5s linear 0s;
+}
+.board-row .board-cell.inWinLine {
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
 .board-row .board-cell:hover {
   cursor: pointer;
@@ -200,6 +211,10 @@ body {
   font-family: "Ubuntu Condensed", sans-serif;
 }
 
+h1 {
+  padding: 10px;
+}
+
 .noVisible {
   visibility: hidden;
 }
@@ -230,6 +245,7 @@ body {
 }
 .menu > li > a {
   color: white;
+  padding: 10px;
 }
 
 #content {

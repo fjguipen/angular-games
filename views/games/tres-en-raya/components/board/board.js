@@ -4,6 +4,7 @@ let boardComponent = {
     bindings: {
         tablero: '<',
         isEnded: '<',
+        winLine:'<',
         handleClick: '&',
         handleReset: '&',
     },
@@ -17,10 +18,12 @@ let circleComponent = {
         currentValue: '<',
         row: '<',
         col: '<',
+        inWinLine:'<',
         clickedSquare: '&'
     },
     template: `<div class="board-cell" 
-                    ng-click="circle.handleClick()">
+                    ng-click="circle.handleClick()"
+                    ng-class="{'inWinLine': circle.inWinLine}">
                     <span ng-class="{'showUp': circle.currentValue, 
                                     'bg-rojo':  circle.currentValue === 'X',
                                     'bg-negro': circle.currentValue === 'O'}">                        
@@ -38,6 +41,19 @@ class boardController {
         this.handleClick({ row, col })
     }
 
+    $onChanges(){
+        this.inWinLine = function (row, col){
+            let found;
+            if (this.winLine.length===0){
+                return false
+            }
+            found =  this.winLine.find((cell)=>{
+                return cell.row === row && cell.col === col
+            });
+            return found ? true : false;
+        }
+    }
+    
 }
 
 class circleController {
