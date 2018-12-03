@@ -361,6 +361,19 @@ h1 {
   align-items: center;
 }
 
+.menuEspecial:nth-child(1) {
+  width: 100px;
+}
+.menuEspecial:nth-child(2) {
+  width: 200px;
+}
+.menuEspecial:nth-child(3) {
+  width: 300px;
+}
+.menuEspecial:nth-child(4) {
+  width: 400px;
+}
+
 @media only screen and (max-width: 600px) {
   score-board {
     margin-top: 75px;
@@ -501,6 +514,79 @@ h1 {
     width: 100%;
     max-width: 600px;
     padding: 20px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .lg-col-1 {
+    width: 8.3333333333%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-2 {
+    width: 16.6666666667%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-3 {
+    width: 25%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-4 {
+    width: 33.3333333333%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-5 {
+    width: 41.6666666667%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-6 {
+    width: 50%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-7 {
+    width: 58.3333333333%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-8 {
+    width: 66.6666666667%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-9 {
+    width: 75%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-10 {
+    width: 83.3333333333%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-11 {
+    width: 91.6666666667%;
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .lg-col-12 {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
   }
 }
 

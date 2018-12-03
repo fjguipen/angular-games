@@ -150,6 +150,15 @@ h1{
     @include flexCenterContent();
 }
 
+.menuEspecial{
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i}){
+            width:(100 *$i)+(px);
+        }
+    }
+}
+
+
 @media only screen and(max-width:600px){
     score-board{
         margin-top: 75px;
@@ -175,5 +184,13 @@ h1{
     }
 }
 
-
+@media only screen and(min-width:1600px){
+    @for $i from 1 through 12{
+        .lg-col-#{$i}{
+            width: (100% * $i / 12);
+            max-width: 600px;
+            padding:30px;
+        }
+    }
+}
 

@@ -1,7 +1,7 @@
 let gameSliderComponent = {
     controller: 'gameSliderCtrl',
     controllerAs: 'slid',
-    templateUrl:'/home.html',
+    templateUrl:'/game-slider.html',
 }
 
 class gameSliderCtrl{
