@@ -1,5 +1,5 @@
 # angular-games
-Algunos juegos hechos con Angular (Versión simplificada, no es necesario servidor)
+Algunos juegos hechos con AngularJS (Versión simplificada, no es necesario servidor) y SASS
 
 ```bash
 │   app.html
