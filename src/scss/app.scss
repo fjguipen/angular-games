@@ -145,6 +145,12 @@ h1{
 .players{
     @include flexCenterContent();
 }
+
+
+//Este bucle no sirve en este proyecto pero sería una forma de aplciar distios
+//estilos en funcion del nivel de hijos dentro del menu, para un menu con varios
+//submenus por ejemplo.
+
 .menuEspecial{
     @for $i from 1 through 4 {
         &:nth-child(#{$i}){
@@ -152,7 +158,7 @@ h1{
         }
     }
 }
-
+//Generación de columnas con prefijo sm- (solo aplicables a pantallas pequeñas)
 @media only screen and(max-width:#{($mdScreen*1-1)}){
     score-board{
         margin-top: 75px;
@@ -164,6 +170,7 @@ h1{
         }
     }
 }
+//Generación de columnas con prefijo md- (solo aplicables a pantallas medianas y grandes)
 @media only screen and(min-width: $mdScreen){
     #content{
         align-items: center;
@@ -176,6 +183,7 @@ h1{
         }
     }
 }
+//Generación de columnas con prefijo md- (solo aplicables a pantallas grandes)
 @media only screen and(min-width:$lgScreen){
     @for $i from 1 through 12{
         .lg-col-#{$i}{

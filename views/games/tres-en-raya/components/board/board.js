@@ -1,4 +1,23 @@
 'use strict'
+/**
+ * MODULO: tresEnRaya.board
+ * 
+ * Modulo que se encarga del estado del propio tablero,
+ * de manera que actualice lo que se muestra por pantalla
+ * 
+ * Consta de dos componentes, uno para el tablero y otro para cada celda del tablero
+ * 
+ * Componente boardComponent: Genera la tabla y controla la informacion que necesita cada celda y el boton de reinicio,
+ * la funcion es un callback que llama al modulo padre tresEnRaya.
+ *
+ * Componente circleComponent: Genera una ficha de un color u otro en funcion del turno (modulo padre tresEnRaya) y recibe como
+ * callbak una funcion para cuando hagan click en la ficha.
+ * 
+ * El flujo sería: Click en la ficha -> Dispara una funcion que avisa al modulo board se 
+ * ha hecho click -> Este a su vez, pasa el vento a su modulo padre tresEnRara, quien actuliza 
+ * el estado del juego en funcion de la información recibida. Ahora el proceso se repite pero de 
+ * manera descendente, haciendo que los modulos hijos se actualizen para ajustarse a los cambios de estado
+ */
 
 let boardComponent = {
     bindings: {

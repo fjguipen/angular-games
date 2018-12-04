@@ -1,5 +1,17 @@
 'use strict';
 
+/**
+ * MODULO: tresEnRaya
+ * 
+ * módulo principal del juego Tres en raya, de el dependen el resto de módulos dedicados
+ * al funcionamiento y control de este juego
+ * 
+ * Aqui se gestiona toda la parte lógica del juego y el estado del tablero
+ * 
+ * La informacion es delegada a sus módulos hijos mediante binding de manera que solo
+ * tengan que preocuparse de mostrar la informacion.
+ */
+
 let tresEnRayaComponent = {
     templateUrl: '/tres-en-raya.html',
     controller: 'tresEnRayaCtrl'
@@ -27,7 +39,8 @@ class tresEnRayaCtrl {
             mark: "O",
         }
         this.winLine=[];
-        //Escuchamos evento, si el store cambian, actualizamos campos
+
+        //Escuchamos evento, si el store cambia, actualizamos campos -> función broadcast en app.js
         this.scope.$on('storeChanged', ()=>{
             this.player1 = {
                 name: this.gameStatus.player1.get.name(),
@@ -39,7 +52,11 @@ class tresEnRayaCtrl {
             }
         })
     }
-
+/**Control de los turnos
+ * 
+ * Para cada turno, comprueba si es el fin del juego y si existe algun ganador
+ * o permite que vuelva a existir un nuevo turno
+ */
     turn(row, col) {
         if (!this.isEnded) {
             if (this.tablero[row][col] === null) {
@@ -63,7 +80,12 @@ class tresEnRayaCtrl {
             }
         }
     }
-
+/**
+ * En cada turno, comprueba las filas, columnas y diagonales asociadas a la última ficha colocada
+ * para ver si existe linea ganadora
+ * 
+ * Si encuentra linea ganadora añade las filas y columnas de esta linea al array winLine
+ */
     checkWinner(row, col) {
         var winner = false;
         //Cheking rows
@@ -98,8 +120,8 @@ class tresEnRayaCtrl {
         return winner;
     }
 
+    //Devuelve el estado del juego a su valor incial
     reset() {
-        console.log(this.winLine)
         if (this.isEnded) {
             this.isEnded = false;
             this.isXTurn = true;

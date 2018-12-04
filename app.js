@@ -1,5 +1,12 @@
 'use strict';
-
+/**
+ * MODULO: gamesApp
+ * 
+ * Su funcion en la de controlar el estado del juego,
+ * quiénes son los jugadores y qué puntuacion llevan
+ * 
+ * Modulo principal del que cuelgan el resto de móduos
+ */
 let gamesAppComponent = {
     controller: 'gamesAppController',
     controllerAs: 'app',
@@ -18,16 +25,17 @@ class gamesAppController {
         }
     }
 
+    //Re-validacion de imput. Solo comprueba que ambos tengan algun dato
     validatePlayers(event){
         if (!this.player1 || !this.player2){
             return
         }
         this.validPlayers = true;
+        //Guardo los nombres de jugador usando la factoria
         this.gameStatus.player1.set.name(this.player1)
         this.gameStatus.player2.set.name(this.player2)
+        //Emito un evento a todos los hijos del modulo, para que estos se actualicen
         this.scope.$broadcast('storeChanged')
-
-        //console.log(this.gameStatus.player1.get.name())
     }
 }
 
@@ -38,6 +46,11 @@ angular.module('gamesApp', [
     'tresEnRaya',
     'conectaCuatro',
 ])
+/**
+ * Factoria que guarda un objeto store y proporciona una serie
+ * de funciones para acceder y manipularlo. Este estará disponible para
+ * todos los modulos que se suscriban a el.
+ */
     .factory("gameStatus",() => {
         let store = {
             player1: {
@@ -78,6 +91,9 @@ angular.module('gamesApp', [
     .component('gamesApp', gamesAppComponent)
     .controller('gamesAppController', gamesAppController)
 
+    /** 
+    *  Router
+    */
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
