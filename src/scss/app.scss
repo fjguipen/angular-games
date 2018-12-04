@@ -1,6 +1,11 @@
+//Colores
 $rojo:#a52b2b;
 $negro:#484848;
 $disabled: #d8d8d8;
+
+//Tamaños de pantala
+$mdScreen:600px;
+$lgScreen:1600px;
 
 //Al importarlo el primero, estará disponible
 //tb en el resto de imports!
@@ -36,7 +41,6 @@ h1{
     position:fixed;
     width: 100%;
     text-align: center;
-    //border-bottom: $rojo solid;
     box-shadow: 1px 2px 2px 1px #989898;
     background: $rojo;
 
@@ -118,10 +122,8 @@ h1{
     max-width: 350px;
     li{
         padding: 15px;
-        //background-color: $negro;
         color:$negro;
         margin:15px 0;
-
         p{
             span{
                 @include flexCenterContent();
@@ -136,16 +138,13 @@ h1{
                 &.blackPlayer{
                     background-color: $negro;
                 }
-
             }
         }
     }
 }
-
 .players{
     @include flexCenterContent();
 }
-
 .menuEspecial{
     @for $i from 1 through 4 {
         &:nth-child(#{$i}){
@@ -154,8 +153,7 @@ h1{
     }
 }
 
-
-@media only screen and(max-width:600px){
+@media only screen and(max-width:#{($mdScreen*1-1)}){
     score-board{
         margin-top: 75px;
     }
@@ -166,8 +164,7 @@ h1{
         }
     }
 }
-
-@media only screen and(min-width:601px){
+@media only screen and(min-width: $mdScreen){
     #content{
         align-items: center;
     }
@@ -179,8 +176,7 @@ h1{
         }
     }
 }
-
-@media only screen and(min-width:1600px){
+@media only screen and(min-width:$lgScreen){
     @for $i from 1 through 12{
         .lg-col-#{$i}{
             width: (100% * $i / 12);
@@ -189,4 +185,3 @@ h1{
         }
     }
 }
-
